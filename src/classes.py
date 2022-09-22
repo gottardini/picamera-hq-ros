@@ -16,11 +16,13 @@ class CamHandler:
         
     def start(self):
         self.camera = PiCamera(resolution=self.resolution, framerate=self.framerate,  sensor_mode=self.sensor_mode)
-
+        self.camera.exposure_mode="auto"
+        self.camera.shutter_speed = self.shutter_speed
+        time.sleep(2)
         self.camera.iso = self.iso
         #time.sleep(5)
         #print(self.camera.awb_gains)
-        self.camera.shutter_speed = self.shutter_speed
+
         self.camera.exposure_mode = 'off'
         self.camera.awb_mode = 'off'
         self.camera.awb_gains = self.wb
