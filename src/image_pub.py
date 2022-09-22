@@ -21,19 +21,20 @@ def start_node():
     rospy.loginfo('Starting camera...')
     cam.start()
     rospy.loginfo('Camera started.')
-    
+
 def takePicture_fcn(req):
     rospy.loginfo("Taking pic...")
     img=cam.takePic()
-    print(img.shape)
+    #print(img.shape)
+    print(img)
     #print(type(img))
     imgMsg = bridge.cv2_to_imgmsg(img, encoding="bgr8")
     rospy.loginfo("Pic taken. Sending...")
     #pub.publish(imgMsg)
-    rospy.loginfo("Pic sent.")
-    #rospy.Rate(1.0).sleep()  # 1 Hz    
+    #rospy.loginfo("Pic sent.")
+    #rospy.Rate(1.0).sleep()  # 1 Hz
     return TakePictureResponse(imgMsg)
- 
+
 if __name__ == '__main__':
     try:
         start_node()
