@@ -5,12 +5,10 @@ from sensor_msgs.msg import Image
 from picamera_hq_ros.srv import TakePicture, TakePictureResponse
 import numpy as np
 
-from picamera import PiCamera
 import time
-from fractions import Fraction
 from classes import CamHandler
 
-cam=CamHandler(resolution=(2016, 1520), iso=100 , framerate=10, shutter_speed=30000 , wb=(2.816,1.918) , sensor_mode=0,use_video_port=False)
+cam=CamHandler(resolution=(2016, 1520), iso=100 , framerate=10, shutter_speed=40000 , wb=(2.816,1.918) , sensor_mode=0,use_video_port=False)
 #cam=CamHandler(resolution=(4032, 3040), iso=100 , framerate=10, shutter_speed=50000 , wb=(2.816,1.918) , sensor_mode=0, use_video_port=False)
 
 bridge = CvBridge()
